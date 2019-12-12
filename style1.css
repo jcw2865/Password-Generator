@@ -1,0 +1,12 @@
+#left {
+    text-align: start;
+}
+
+#btns {
+    display: flex;
+    justify-content: space-around;
+}
+
+#generate {
+    background-color: red;
+}
