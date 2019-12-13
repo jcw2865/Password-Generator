@@ -6,8 +6,8 @@ console.log(genBtn);
 var copyBtn = document.querySelector("#copy");
 console.log(copyBtn);
 
-var newPassEl = document.querySelector("#newpass");
-console.log(newPassEl);
+// var newPassEl = document.querySelector("#newpass");
+// console.log(newPassEl);
 
 // Create click event for our buttons
 
@@ -27,10 +27,12 @@ genBtn.addEventListener("click", function () {
         return;
     }
 
+    var charBank = "";
+
     var cnfrmspchr = confirm("Would you like your password to include special characters?");
 
     if (cnfrmspchr === true) {
-        newPassEl = newPassEl + " !#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+        charBank = charBank + " !#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
         console.log("confirmed special characters");
     } else {
         console.log("no special characters");
@@ -39,7 +41,7 @@ genBtn.addEventListener("click", function () {
     var cnfrmnum = confirm("Would you like your password to include numbers?");
 
     if (cnfrmnum === true) {
-        newPassEl = newPassEl + "0123456789";
+        charBank = charBank + "0123456789";
         console.log("confirmed special characters");
     } else {
         console.log("no numbers");
@@ -48,7 +50,7 @@ genBtn.addEventListener("click", function () {
     var cnfrmlwrcs = confirm("Would you like your password to include lower case letter?");
 
     if (cnfrmlwrcs === true) {
-        newPassEl = newPassEl + "abcdefghijklmnopqrstuvwxyz";
+        charBank = charBank + "abcdefghijklmnopqrstuvwxyz";
         console.log("confirmed lower case letters");
     } else {
         console.log("no lower case letters");
@@ -57,18 +59,20 @@ genBtn.addEventListener("click", function () {
     var cnfrmuprcs = confirm("Would you like your password to include upper case letters?");
 
     if (cnfrmuprcs === true) {
-        newPassEl = newPassEl + "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        charBank = charBank + "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         console.log("confirmed upper case letters");
     } else {
         console.log("no upper case letters");
     }
 
+    var newPassEl = "";
+
     for (var i = 0; i < hwlng; i++) {
-        newPassEl += newPassEl[Math.floor(Math.random() * newPassEl.length)];
+        newPassEl += charBank[Math.floor(Math.random() * charBank.length)];
         console.log(newPassEl);
     }
 
-    newPassEl.textContent = newPassEl.nodeValue;
+    document.querySelector("#newpass").textContent = newPassEl;
 });
 
 copyBtn.addEventListener("click", function () {
