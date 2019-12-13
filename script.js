@@ -19,13 +19,9 @@ genBtn.addEventListener("click", function () {
 
     if (hwlng < 8 || hwlng > 128) {
         hwlng = prompt("You must enter a number between 8 and 128. You have two attempts remaining.");
-    } else {
-        newPassEl = "";
     }
     if (hwlng < 8 || hwlng > 128) {
         hwlng = prompt("You must enter a number between 8 and 128. You have one attempt remaining.");
-    } else {
-        newPassEl = "";
     }
     if (hwlng < 8 || hwlng > 128) {
         return;
@@ -36,6 +32,8 @@ genBtn.addEventListener("click", function () {
     if (cnfrmspchr === true) {
         newPassEl = newPassEl + " !#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
         console.log("confirmed special characters");
+    } else {
+        console.log("no special characters");
     }
 
     var cnfrmnum = confirm("Would you like your password to include numbers?");
@@ -43,6 +41,8 @@ genBtn.addEventListener("click", function () {
     if (cnfrmnum === true) {
         newPassEl = newPassEl + "0123456789";
         console.log("confirmed special characters");
+    } else {
+        console.log("no numbers");
     }
 
     var cnfrmlwrcs = confirm("Would you like your password to include lower case letter?");
@@ -50,6 +50,8 @@ genBtn.addEventListener("click", function () {
     if (cnfrmlwrcs === true) {
         newPassEl = newPassEl + "abcdefghijklmnopqrstuvwxyz";
         console.log("confirmed lower case letters");
+    } else {
+        console.log("no lower case letters");
     }
 
     var cnfrmuprcs = confirm("Would you like your password to include upper case letters?");
@@ -57,10 +59,16 @@ genBtn.addEventListener("click", function () {
     if (cnfrmuprcs === true) {
         newPassEl = newPassEl + "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         console.log("confirmed upper case letters");
+    } else {
+        console.log("no upper case letters");
     }
 
+    for (var i = 0; i < hwlng; i++) {
+        newPassEl += newPassEl[Math.floor(Math.random() * newPassEl.length)];
+        console.log(newPassEl);
+    }
 
-    newPassEl.textContent = "Here's your new password!";
+    newPassEl.textContent = newPassEl.nodeValue;
 });
 
 copyBtn.addEventListener("click", function () {
