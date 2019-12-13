@@ -3,8 +3,8 @@
 var genBtn = document.querySelector("#generate");
 console.log(genBtn);
 
-var copyBtn = document.querySelector("#copy");
-console.log(copyBtn);
+// var copyBtn = document.querySelector("#copy");
+// console.log(copyBtn);
 
 // var newPassEl = document.querySelector("#newpass");
 // console.log(newPassEl);
@@ -32,7 +32,7 @@ genBtn.addEventListener("click", function () {
     var cnfrmspchr = confirm("Would you like your password to include special characters?");
 
     if (cnfrmspchr === true) {
-        charBank = charBank + " !#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+        charBank = charBank + "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
         console.log("confirmed special characters");
     } else {
         console.log("no special characters");
@@ -75,10 +75,27 @@ genBtn.addEventListener("click", function () {
     document.querySelector("#newpass").textContent = newPassEl;
 });
 
-copyBtn.addEventListener("click", function () {
-    // Create a test to make sure the button works
-    // alert("You just clicked the Copy to Clipboard button!");
-});
+function myFunction() {
+    /* Get the text field */
+    var copyText = document.getElementById("newpass");
+
+    /* Select the text field */
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+    /* Copy the text inside the text field */
+    document.execCommand("copy");
+
+    // /* Alert the copied text */
+    // alert("Copied the text: " + copyText.value);
+}
+document.querySelector("#copy").addEventListener("click", copy);
+
+
+// copyBtn.addEventListener("click", function () {
+//     // Create a test to make sure the button works
+//     // alert("You just clicked the Copy to Clipboard button!");
+// });
 
 
 
