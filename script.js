@@ -6,6 +6,9 @@ console.log(genBtn);
 var copyBtn = document.querySelector("#copy");
 console.log(copyBtn);
 
+var newPassEl = document.querySelector("#newpass");
+console.log(newPassEl);
+
 // Create click event for our buttons
 
 genBtn.addEventListener("click", function () {
@@ -14,19 +17,64 @@ genBtn.addEventListener("click", function () {
 
     var hwlng = prompt("How many characters do you want your password to be? Please choose a number between 8 and 128.");
 
+    if (hwlng < 8 || hwlng > 128) {
+        hwlng = prompt("You must enter a number between 8 and 128. You have two attempts remaining.");
+    } else {
+        newPassEl = "";
+    }
+    if (hwlng < 8 || hwlng > 128) {
+        hwlng = prompt("You must enter a number between 8 and 128. You have one attempt remaining.");
+    } else {
+        newPassEl = "";
+    }
+    if (hwlng < 8 || hwlng > 128) {
+        return;
+    }
+
     var cnfrmspchr = confirm("Would you like your password to include special characters?");
+
+    if (cnfrmspchr === true) {
+        newPassEl = newPassEl + " !#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+        console.log("confirmed special characters");
+    }
 
     var cnfrmnum = confirm("Would you like your password to include numbers?");
 
+    if (cnfrmnum === true) {
+        newPassEl = newPassEl + "0123456789";
+        console.log("confirmed special characters");
+    }
+
     var cnfrmlwrcs = confirm("Would you like your password to include lower case letter?");
 
+    if (cnfrmlwrcs === true) {
+        newPassEl = newPassEl + "abcdefghijklmnopqrstuvwxyz";
+        console.log("confirmed lower case letters");
+    }
+
     var cnfrmuprcs = confirm("Would you like your password to include upper case letters?");
+
+    if (cnfrmuprcs === true) {
+        newPassEl = newPassEl + "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        console.log("confirmed upper case letters");
+    }
+
+
+    newPassEl.textContent = "Here's your new password!";
 });
 
 copyBtn.addEventListener("click", function () {
     // Create a test to make sure the button works
     // alert("You just clicked the Copy to Clipboard button!");
 });
+
+
+
+
+
+
+
+
 
 // var hwlng = prompt("How many characters do you want your password to be? Please choose a number between 8 and 128.");
 
