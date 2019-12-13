@@ -72,12 +72,13 @@ genBtn.addEventListener("click", function () {
         console.log(newPassEl);
     }
 
-    document.querySelector("#newpass").textContent = newPassEl;
+    document.querySelector("#newpass").value = newPassEl;
 });
 
 function myFunction() {
     /* Get the text field */
-    var copyText = document.getElementById("newpass");
+    var copyText = document.querySelector("#newpass");
+    console.log(copyText);
 
     /* Select the text field */
     copyText.select();
@@ -86,10 +87,10 @@ function myFunction() {
     /* Copy the text inside the text field */
     document.execCommand("copy");
 
-    // /* Alert the copied text */
-    // alert("Copied the text: " + copyText.value);
+    /* Alert the copied text */
+    alert("Copied the text: " + copyText.value);
 }
-document.querySelector("#copy").addEventListener("click", copy);
+// document.querySelector("#copy").addEventListener("click", copy);
 
 
 // copyBtn.addEventListener("click", function () {
