@@ -1,4 +1,4 @@
-# Homework-3
+# Password Generator
 
 The purpose of this project was to build a random password generator using HTML, CSS, and JavaScript. The criteria for success were as follows:
 
@@ -16,8 +16,8 @@ The deployed project should look like this.
 
 Below is the link to the project repository followed by the link to the live website. 
 
-https://github.com/jcw2865/homework-3
-https://jcw2865.github.io/homework-3/
+https://github.com/jcw2865/Password-Generator
+https://jcw2865.github.io/Password-Generator/
 
 ### Development
 
